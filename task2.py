@@ -1,6 +1,8 @@
 from efficient_apriori import apriori
 from pandas import read_csv
 import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.font_manager import FontProperties
 
 ##导入数据并处理
 path1 = r'D:\\course\\数据挖掘\Wine Reviews\\winemag-data_first150k.csv'
@@ -26,3 +28,9 @@ datapre = datapre.tolist()
 itemsets, rules = apriori(datapre, min_support=0.1,  min_confidence=0)
 print("频繁项集：", itemsets)
 print("关联规则：", rules)
+it = ['US', 'California', 'France', 'Italy', 'California,US']
+num = [116901, 80755, 43191, 43018, 80755]
+plt.bar(it, num)
+plt.xlabel("rules")
+plt.ylabel("nums")
+plt.show()
